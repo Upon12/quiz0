@@ -52,7 +52,7 @@ def part12():
 		name = request.form["name"]
 		cnxn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};Server=tcp:2server2.database.windows.net,1433;Database=samp;Uid=admin1;Pwd={wangpeng131488.};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;')
 		cursor = cnxn.cursor()
-		cursor.execute("select Name,Keywords,Picture from data where Name=?",name)
+		cursor.execute("select Name,Keywords,Picture from dbo.data_1 where Name=?",name)
 		row = cursor.fetchone()
 		if row is not None:
 			return render_template('part12.html',part12_active = "active",data = {
